@@ -1,8 +1,4 @@
 <template>
-  <!-- <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div> -->
   <app-header
     :logoSrc="
       'http://images.repzio.com/productimages/' +
@@ -58,12 +54,14 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style>
 :root {
   --dark: #121314;
   --light: #fefefe;
+  --gray: #7a7a7a;
+  --gray-light: #ececec;
   --accent: #fbc22a;
-  --link: rgb(36, 36, 167);
+  --link: #2424a7;
 }
 html,
 body {
@@ -75,13 +73,15 @@ body {
   margin: 0;
   background-color: var(--light);
   color: var(--dark);
+  font-size: 16px;
 }
 a {
   color: var(--link);
+  text-decoration: none;
 }
 .app-main {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 6rem 4rem 2rem;
+  padding: 3rem 4rem 2rem;
 }
 </style>

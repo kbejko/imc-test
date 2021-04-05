@@ -15,5 +15,7 @@ export default {
 .page-title {
   font-size: 1.75rem;
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 </style>

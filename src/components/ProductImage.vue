@@ -1,8 +1,8 @@
 <template>
-  <div class="aspect-ratio aspect-ratio--1x1">
+  <div class="aspect-ratio aspect-ratio--sq">
     <img
       class="aspect-ratio--object"
-      :src="imageSource + '?width=320&height=320&quality=90'"
+      :src="imageSource + '?width=600&height=600&quality=90'"
       :alt="imageAlt"
     />
   </div>
@@ -24,19 +24,17 @@ export default {
   position: relative;
 }
 
-.aspect-ratio--1x1 {
+.aspect-ratio--sq {
   padding-bottom: 100%;
-  background: pink;
+  background: rgb(235, 235, 235);
 }
 
 .aspect-ratio--object {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* z-index: 10; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
 }
 </style>

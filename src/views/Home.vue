@@ -5,12 +5,15 @@
       :key="item.ProductID"
       :class="{ odd: index % 2 !== 0, even: index % 2 === 0 }"
     >
-      <router-link :to="{ name: 'About', params: { id: item.ProductID } }">
+      <router-link :to="{ name: 'Product', params: { id: item.ProductID } }">
         <product-image
           :imageSource="item.PhotoName"
           :imageAlt="item.Description"
         ></product-image>
-        <h2>{{ item.ItemName }}</h2>
+        <product-info
+          :productName="item.ItemName"
+          :basePrice="item.BasePrice"
+        ></product-info>
       </router-link>
     </li>
   </ul>
@@ -20,11 +23,13 @@
 // @ is an alias to /src
 import json from '@/assets/test.json'
 import ProductImage from '@/components/ProductImage.vue'
+import ProductInfo from '../components/ProductInfo.vue'
 
 export default {
   name: 'Home',
   components: {
-    ProductImage
+    ProductImage,
+    ProductInfo
   },
   data: function () {
     return {
@@ -64,19 +69,5 @@ export default {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  /* border: 1px solid black; */
-  text-align: center;
-}
-.grid h2 {
-  font-size: 1rem;
-  background-color: var(--accent);
-  padding: 1rem;
-}
-
-/* this can be removed —  I think it makes it a bit more dynamic */
-@media screen and (min-width: 600px) {
-  /* .odd {
-      margin-top: 6rem;
-    } */
 }
 </style>
