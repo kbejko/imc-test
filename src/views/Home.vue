@@ -2,14 +2,16 @@
   <ul class="grid">
     <li
       v-for="(item, index) in data.items"
-      :key="item.ItemID"
+      :key="item.ProductID"
       :class="{ odd: index % 2 !== 0, even: index % 2 === 0 }"
     >
-      <img
-        :src="item.PhotoName + '?width=600&quality=50'"
-        :alt="item.Description"
-      />
-      <h2>{{ item.ItemName }}</h2>
+      <router-link :to="{ name: 'About', params: { id: item.ProductID } }">
+        <product-image
+          :imageSource="item.PhotoName"
+          :imageAlt="item.Description"
+        ></product-image>
+        <h2>{{ item.ItemName }}</h2>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -17,13 +19,20 @@
 <script>
 // @ is an alias to /src
 import json from '@/assets/test.json'
+import ProductImage from '@/components/ProductImage.vue'
 
 export default {
   name: 'Home',
+  components: {
+    ProductImage
+  },
   data: function () {
     return {
-      data: json
+      data: []
     }
+  },
+  mounted() {
+    this.data = json
   }
   // created() {
   //   fetch('/test.json')
@@ -41,8 +50,9 @@ export default {
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 6rem;
+  grid-gap: 3rem;
   row-gap: 3rem;
+  grid-auto-flow: dense;
   /* add to align item on each grid row to the bottom */
   /* align-items: end; */
 
@@ -65,8 +75,8 @@ export default {
 
 /* this can be removed —  I think it makes it a bit more dynamic */
 @media screen and (min-width: 600px) {
-  .odd {
-    margin-top: 6rem;
-  }
+  /* .odd {
+      margin-top: 6rem;
+    } */
 }
 </style>
