@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // which is lazy-loaded when the route is visited.
 const Home = () => import('../views/Home.vue')
 const Product = () => import('../views/Product.vue')
+const Page404 = () => import('../views/404.vue')
 
 const routes = [
   {
@@ -15,6 +16,12 @@ const routes = [
     name: 'Product',
     props: true,
     component: Product
+  },
+  { path: '/product', redirect: { name: 'Home' } },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'Page 404',
+    component: Page404
   }
 ]
 
