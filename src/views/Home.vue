@@ -7,13 +7,13 @@
         :to="{ name: 'Product', params: { id: item.ProductID } }"
       >
         <product-image
-          :imageSource="item.PhotoName"
-          :imageAlt="item.Description"
+          :image-source="item.PhotoName"
+          :image-alt="item.Description"
         ></product-image>
 
         <product-info
-          :productName="item.ItemName"
-          :basePrice="item.BasePrice"
+          :product-name="item.ItemName"
+          :base-price="item.BasePrice"
         ></product-info>
       </router-link>
     </li>
@@ -69,7 +69,7 @@ export default {
 @supports (display: grid) {
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     grid-gap: 3rem;
     row-gap: 3rem;
   }

@@ -18,7 +18,7 @@
         </div>
         <div>
           <h6 class="product-info--header">Product ID</h6>
-          <h3 class="product-info--data">{{ productID }}</h3>
+          <h3 class="product-info--data">{{ productId }}</h3>
         </div>
         <div>
           <h6 class="product-info--header">Units</h6>
@@ -42,7 +42,7 @@ export default {
     basePrice: Number,
     description: String,
     dimensions: String,
-    productID: String,
+    productId: Number,
     quantityAvailable: Number
   }
 }

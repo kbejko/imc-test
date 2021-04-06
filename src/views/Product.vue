@@ -1,18 +1,18 @@
 <template>
   <article class="grid">
     <product-image
-      :imageSource="getItem.PhotoName"
-      :imageAlt="getItem.Description"
+      :image-source="getItem.PhotoName"
+      :image-alt="getItem.Description"
     ></product-image>
     <product-info
-      :productName="getItem.ItemName"
-      :basePrice="getItem.BasePrice"
+      :product-name="getItem.ItemName"
+      :base-price="getItem.BasePrice"
       :description="getItem.Description"
       :dimensions="getItem.Dimensions"
-      :productID="getItem.ProductID"
-      :quantityAvailable="getItem.OnHandQuantity"
+      :product-id="getItem.ProductID"
+      :quantity-available="getItem.OnHandQuantity"
     ></product-info>
-    <pagination :paginationLinks="getAllIds"></pagination>
+    <pagination :pagination-links="getAllIds"></pagination>
   </article>
 </template>
 

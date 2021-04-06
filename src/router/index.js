@@ -23,4 +23,8 @@ const router = createRouter({
   routes
 })
 
+// scrolls to top, but I like the way pagination scrolls without this on laptop
+// router.beforeEach(() => {
+//   window.scrollTo(0, 0)
+// })
 export default router

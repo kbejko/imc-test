@@ -60,6 +60,7 @@ export default {
 }
 </script>
 <style>
+/* @import url('https://fonts.googleapis.com/css2?family=Recursive:wght,CASL,MONO@600,0..1,0.25&display=swap'); */
 :root {
   --dark: #121314;
   --light: #fefefe;
@@ -69,6 +70,7 @@ export default {
   --link: #2424a7;
   --link-hover: #3535d4;
   --error: #ad1414;
+  --mono: 'MONO' 0;
 }
 html,
 body {
@@ -93,7 +95,6 @@ a:hover {
 .app-main {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 1rem;
 }
 @media screen and (min-width: 600px) {
   .app-main {
