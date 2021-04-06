@@ -62,10 +62,6 @@ export default {
   width: 50%;
   margin: 0 auto;
 }
-.grid-item--link:hover {
-  opacity: 0.1;
-  transition: opacity 0.3s ease-in-out;
-}
 @supports (display: grid) {
   .grid {
     display: grid;

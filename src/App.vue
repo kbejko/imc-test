@@ -68,7 +68,6 @@ export default {
   --gray-light: #ececec;
   --accent: #fbc22a;
   --link: #2424a7;
-  --link-hover: #3535d4;
   --error: #ad1414;
   --mono: 'MONO' 0;
 }
@@ -89,7 +88,8 @@ a {
   text-decoration: none;
   transition: opacity 0.2s ease-in;
 }
-a:hover {
+a:hover,
+a:hover img {
   opacity: 0.7;
 }
 .app-main {

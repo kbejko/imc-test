@@ -8,7 +8,7 @@
     </section>
     <section
       class="product-info--additional"
-      v-if="dimensions || productID || quantityAvailable"
+      v-if="dimensions || productId || quantityAvailable"
     >
       <h5 v-if="dimensions">Additional Information</h5>
       <div class="product-info--additional-data">
@@ -21,12 +21,13 @@
           <h3 class="product-info--data">{{ productId }}</h3>
         </div>
         <div>
-          <h6 class="product-info--header">Units</h6>
+          <h6 class="product-info--header">In stock</h6>
           <h3
             class="product-info--data"
             :class="{ negative: quantityAvailable < 0 }"
           >
-            {{ quantityAvailable }}
+            <span v-if="quantityAvailable < 0">No</span
+            ><span v-else>{{ quantityAvailable }}</span>
           </h3>
         </div>
       </div>
