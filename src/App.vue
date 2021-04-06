@@ -15,7 +15,10 @@
   </app-header>
 
   <main class="app-main">
-    <page-title :pageTitle="data.CompanyName"></page-title>
+    <page-header
+      :page-title="data.CompanyName"
+      :page-message="data.Message"
+    ></page-header>
     <router-view />
   </main>
 
@@ -39,14 +42,14 @@
 // @ is an alias to /src
 import json from '@/assets/test.json'
 import AppHeader from '@/components/AppHeader.vue'
-import PageTitle from '@/components/PageTitle.vue'
+import PageHeader from '@/components/PageHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 
 export default {
   name: 'Home',
   components: {
     AppHeader,
-    PageTitle,
+    PageHeader,
     AppFooter
   },
   data: function () {
@@ -64,6 +67,7 @@ export default {
   --gray-light: #ececec;
   --accent: #fbc22a;
   --link: #2424a7;
+  --link-hover: #3535d4;
   --error: #ad1414;
 }
 html,
@@ -81,10 +85,19 @@ body {
 a {
   color: var(--link);
   text-decoration: none;
+  transition: opacity 0.2s ease-in;
+}
+a:hover {
+  opacity: 0.7;
 }
 .app-main {
   max-width: 80rem;
   margin: 0 auto;
-  padding: 3rem 4rem 2rem;
+  padding: 1rem;
+}
+@media screen and (min-width: 600px) {
+  .app-main {
+    padding: 3rem 4rem 2rem;
+  }
 }
 </style>
