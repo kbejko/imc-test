@@ -5,7 +5,7 @@
     </a>
     <p>
       Contact {{ repFirst }} {{ repLast }}
-      <a href="'mailto:' + repEmail">{{ repEmail }}</a>
+      <a :href="'mailto:' + repEmail">{{ repEmail }}</a>
     </p>
   </header>
 </template>

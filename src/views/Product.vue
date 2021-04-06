@@ -9,9 +9,10 @@
       :basePrice="getItem.BasePrice"
       :description="getItem.Description"
       :dimensions="getItem.Dimensions"
-      :productID="getItem.ItemID"
+      :productID="getItem.ProductID"
       :quantityAvailable="getItem.OnHandQuantity"
     ></product-info>
+    <pagination :paginationLinks="getAllIds"></pagination>
   </article>
 </template>
 
@@ -20,15 +21,17 @@
 import json from '@/assets/test.json'
 import ProductImage from '../components/ProductImage.vue'
 import ProductInfo from '../components/ProductInfo.vue'
+import Pagination from '../components/Pagination.vue'
 
 export default {
   name: 'Product',
   props: {
-    id: Number
+    id: String
   },
   components: {
     ProductImage,
-    ProductInfo
+    ProductInfo,
+    Pagination
   },
   data: function () {
     return {
@@ -38,9 +41,16 @@ export default {
   computed: {
     getItem() {
       return this.data.items.find(item => item.ProductID === Number(this.id))
+    },
+    getAllIds() {
+      const ids = []
+      for (let i = 0; i < this.data.items.length; i++) {
+        ids.push(this.data.items[i].ProductID)
+      }
+      return ids
     }
   },
-  // created hook worked instead of mounted
+  // created hook worked instead of mounted??
   created() {
     this.data = json
   }
@@ -48,17 +58,18 @@ export default {
 </script>
 
 <style scoped>
-.grid h2 {
-  font-size: 1rem;
-  background-color: var(--accent);
-  padding: 1rem;
-}
-
 @media screen and (min-width: 900px) {
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 3rem;
     grid-gap: 2rem;
+  }
+  .pagination {
+    display: flex;
+    flex-flow: column;
+  }
+  .pagination-link {
+    width: calc(100% - 0.5rem);
   }
 }
 </style>

@@ -13,10 +13,12 @@
     :repEmail="data.SalesRep.EmailAddress"
   >
   </app-header>
+
   <main class="app-main">
     <page-title :pageTitle="data.CompanyName"></page-title>
     <router-view />
   </main>
+
   <app-footer
     :logoSrc="
       'http://images.repzio.com/productimages/' +
@@ -62,6 +64,7 @@ export default {
   --gray-light: #ececec;
   --accent: #fbc22a;
   --link: #2424a7;
+  --error: #ad1414;
 }
 html,
 body {

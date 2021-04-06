@@ -2,7 +2,7 @@
   <div class="aspect-ratio aspect-ratio--sq">
     <img
       class="aspect-ratio--object"
-      :src="imageSource + '?width=600&height=600&quality=90'"
+      :src="imageSource + '?width=600&height=600&quality=80'"
       :alt="imageAlt"
     />
   </div>
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  inheritAttrs: false,
   name: 'ProductImage',
   props: {
     imageSource: String,
@@ -26,7 +27,8 @@ export default {
 
 .aspect-ratio--sq {
   padding-bottom: 100%;
-  background: rgb(235, 235, 235);
+  background: var(--gray-light);
+  border-radius: 4px;
 }
 
 .aspect-ratio--object {

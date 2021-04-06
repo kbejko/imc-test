@@ -22,7 +22,12 @@
         </div>
         <div>
           <h6 class="product-info--header">Units</h6>
-          <h3 class="product-info--data">{{ quantityAvailable }}</h3>
+          <h3
+            class="product-info--data"
+            :class="{ negative: quantityAvailable < 0 }"
+          >
+            {{ quantityAvailable }}
+          </h3>
         </div>
       </div>
     </section>
@@ -66,6 +71,9 @@ export default {
     text-transform: uppercase;
     letter-spacing: 0.02em;
   }
+  &--main {
+    color: var(--dark);
+  }
   &--info-text {
     margin-top: 2rem;
   }
@@ -78,6 +86,9 @@ export default {
     div {
       margin-right: 1.5rem;
     }
+  }
+  .negative {
+    color: var(--error);
   }
 }
 </style>

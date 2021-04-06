@@ -1,15 +1,16 @@
 <template>
-  <ul class="grid">
-    <li
-      v-for="(item, index) in data.items"
-      :key="item.ProductID"
-      :class="{ odd: index % 2 !== 0, even: index % 2 === 0 }"
-    >
-      <router-link :to="{ name: 'Product', params: { id: item.ProductID } }">
+  <p v-if="loading">Loading...</p>
+  <ul class="grid" v-else>
+    <li v-for="item in data.items" :key="item.ProductID" class="grid-item">
+      <router-link
+        class="grid-item--link"
+        :to="{ name: 'Product', params: { id: item.ProductID } }"
+      >
         <product-image
           :imageSource="item.PhotoName"
           :imageAlt="item.Description"
         ></product-image>
+
         <product-info
           :productName="item.ItemName"
           :basePrice="item.BasePrice"
@@ -33,11 +34,15 @@ export default {
   },
   data: function () {
     return {
+      loading: true,
       data: []
     }
   },
   mounted() {
     this.data = json
+    setTimeout(() => {
+      this.loading = false
+    }, 300)
   }
   // created() {
   //   fetch('/test.json')
@@ -49,25 +54,28 @@ export default {
 
 <style scoped>
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-gap: 3rem;
-  row-gap: 3rem;
-  grid-auto-flow: dense;
-  /* add to align item on each grid row to the bottom */
-  /* align-items: end; */
-
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.grid li {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
+.grid-item {
+  width: 50%;
+  margin: 0 auto;
+}
+.grid-item--link:hover {
+  opacity: 0.1;
+  transition: opacity 0.3s ease-in-out;
+}
+@supports (display: grid) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 3rem;
+    row-gap: 3rem;
+  }
+  .grid-item {
+    width: 100%;
+    margin: auto;
+  }
 }
 </style>
